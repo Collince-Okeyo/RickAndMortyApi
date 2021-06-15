@@ -8,19 +8,19 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("api/character")
-    fun getRickMorty(): Call<List<RickMorty.Result>>
+    fun getRickMorty(): Call<List<RickMorty>>
 
 }
 
 object RickMortyApi{
-    const val BASE_URL = "https://rickandmortyapi.com/"
+    private const val BASE_URL = "https://rickandmortyapi.com/"
 
-    val retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val retrofitService by lazy {
+    val retrofitService: ApiService by lazy {
         retrofit.create(ApiService::class.java)
     }
 }
