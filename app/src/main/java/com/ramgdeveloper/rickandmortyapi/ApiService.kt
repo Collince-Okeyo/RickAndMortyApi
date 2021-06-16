@@ -8,7 +8,7 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("api/character")
-    fun getRickMorty(): Call<List<RickMorty>>
+    fun getRickMorty(): Call<RickMorty>
 
 }
 
